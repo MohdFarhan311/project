@@ -90,6 +90,7 @@ jobs:
 
   # ---------------- SONARQUBE ANALYSIS ----------------
 
+
   sonarqube:
     name: SonarQube Analysis
     runs-on: ubuntu-latest
@@ -101,9 +102,15 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v5
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: https://sonarcloud.io
+
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
