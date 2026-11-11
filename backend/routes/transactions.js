@@ -33,3 +33,4 @@ router.get('/', auth, merchantOnly, async (req, res) => {
   } catch (err) { res.status(500).json({ error: 'Unable to load plan records' }); }
 });
 module.exports = router;
+
