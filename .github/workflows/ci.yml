@@ -112,7 +112,8 @@ jobs:
           SONAR_HOST_URL: https://sonarcloud.io
 
 
-    docker:
+    
+  docker:
     name: Docker build and push
     runs-on: ubuntu-latest
 
@@ -141,5 +142,4 @@ jobs:
         with:
           context: ./frontend
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/flextenure-frontend:latest
-
+          tags: ${{ secrets.DOCKER_USERNAME }}/flextenure-frontend:latest    
